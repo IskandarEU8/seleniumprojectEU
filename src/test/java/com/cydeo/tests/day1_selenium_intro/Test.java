@@ -36,17 +36,30 @@ public class Test {
 
         WebDriver driver1 = new ChromeDriver();
 
-        driver1.navigate().to("https://apple.com");
-        String cnnTitle = driver1.getTitle();
-        String cnnUrl = driver1.getCurrentUrl();
+        driver1.navigate().to("https://myip.com");
+        String currentTitle = driver1.getTitle();
+        String currentUrl = driver1.getCurrentUrl();
+
+        System.out.println(currentTitle + " : " + currentUrl);
+        Thread.sleep(2500);
+        driver1.navigate().to("https://whoer.net");
 
 
-        System.out.println(cnnTitle + " : " + cnnUrl);
-        System.out.println(cnnTitle + " : " + cnnUrl);
-        System.out.println("-----------------------------------------------------------------");
-        System.out.println("driver.getTitle() = " + driver1.getTitle());
+        currentTitle = driver1.getTitle();
+        currentUrl = driver1.getCurrentUrl();
+        System.out.println(currentTitle + " : " + currentUrl);
 
-        System.out.println("driver1.getCurrentUrl() = " + driver1.getCurrentUrl());
+        Thread.sleep(2500);
+        driver1.navigate().to("https://www.samsung.com/us/mobile/");
+        currentTitle = driver1.getTitle();
+        currentUrl = driver1.getCurrentUrl();
+        System.out.println(currentTitle + " : " + currentUrl);
+
+        Test test = new Test();
+        test.automate("https://abc.com");
+
+
+//      driver1.navigate().refresh();
 
 /*
         WebDriver driver = new ChromeDriver();
@@ -57,6 +70,15 @@ public class Test {
 
                 VIDEO 3:27:00
  */
-
+//VIDEO 3:53:00
     }
+
+    public void automate(String url){
+        WebDriver driver = new ChromeDriver();
+        driver.navigate().to(url);
+        String currentTitle = driver.getTitle();
+        String currentUrl = driver.getCurrentUrl();
+        System.out.println(currentTitle + " : " + currentUrl);
+    }
+
 }
