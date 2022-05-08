@@ -57,6 +57,8 @@ public class Test {
 
         Test test = new Test();
         test.automate("https://abc.com");
+        driver1.quit();
+
 
 
 //      driver1.navigate().refresh();
@@ -79,6 +81,9 @@ public class Test {
         String currentTitle = driver.getTitle();
         String currentUrl = driver.getCurrentUrl();
         System.out.println(currentTitle + " : " + currentUrl);
+//        driver.manage().window().fullscreen();
+        driver.manage().window().maximize();
+        driver.close();
     }
 
 }
