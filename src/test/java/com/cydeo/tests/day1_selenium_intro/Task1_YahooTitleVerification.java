@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Task1_YahooTitleVerification {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         String expectedTitle = "Yahoo | Mail, Weather, Search, Politics, News, Finance, Sports & Videos";
         String actualTitle;
@@ -16,6 +16,9 @@ public class Task1_YahooTitleVerification {
 
 
         driver.get("https://yahoo.com");
+        driver.manage().window().maximize();
+
+
         actualTitle = driver.getTitle();
 
         if (actualTitle.equals(expectedTitle)){
@@ -27,6 +30,10 @@ public class Task1_YahooTitleVerification {
             System.out.println("Actual   output: " + actualTitle);
             System.err.println("Expected output: " + expectedTitle);
         }
+        Thread.sleep(1500);
+        driver.navigate().back();
+        driver.navigate().forward();
+        driver.navigate().refresh();
         driver.quit();
 
         System.out.println("test finished");
