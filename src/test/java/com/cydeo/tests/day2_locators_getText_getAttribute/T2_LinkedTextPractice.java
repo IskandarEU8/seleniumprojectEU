@@ -36,11 +36,15 @@ public class T2_LinkedTextPractice {
         String expectedTitle2 = "Practice";
         actualTitle = driver.getTitle();
 
+
+
         if (actualTitle.equals(expectedTitle2)){
             System.out.println("Second verification was successful");
         }else {
             System.err.println("Second verification wasn't successful");
         }
-
+        String getText =  driver.findElement(By.linkText("A/B Testing")).getText();
+        System.out.println(getText);
     }
 }
+//14915
