@@ -11,6 +11,7 @@ package com.cydeo.utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.sql.Driver;
@@ -27,6 +28,12 @@ public class WebDriverFactory {
 
             WebDriverManager.firefoxdriver().setup();
             return new FirefoxDriver();
+
+        } else if (browserType.equalsIgnoreCase("edge")) {
+
+            WebDriverManager.edgedriver().setup();
+            return new EdgeDriver();
+
         } else {
             System.out.println("Browser type does not exist or not currently supported");
             System.out.println("Driver null");
