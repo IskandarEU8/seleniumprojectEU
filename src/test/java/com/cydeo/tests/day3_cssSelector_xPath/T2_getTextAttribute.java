@@ -49,10 +49,15 @@ public class T2_getTextAttribute {
             System.err.println("\n\nSystem.out.println(\"\\nHREF Attribute value Verification Failed\n");
         }
 
+
+
+
         Thread.sleep(2500);
 
         driver.quit();
-
+/*
+        label[class='login-item-checkbox-label']
+ */
 
     }
 }
