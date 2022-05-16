@@ -18,7 +18,7 @@ public class T3_getAttr_and_cssSelector {
 //        WebElement signInButton = driver.findElement(By.cssSelector("input[class='login-btn'"));
 //        WebElement signInButton = driver.findElement(By.cssSelector("input[type='submit'"));
 
-        WebElement signInButton = driver.findElement(By.cssSelector("input[value='Log In'"));
+        WebElement signInButton = driver.findElement(By.cssSelector("input[value='Log In']"));
         String  actualButtonText = signInButton.getAttribute("value");
 
         String expectedButtonText = "Log In";
