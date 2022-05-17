@@ -38,8 +38,49 @@ public class T1_xpath_cssSelector_practice {
 
         Print.printStarted();
 
+        WebElement homeBtn = driver.findElement(By.cssSelector("a[class = 'nav-link']"));       // cssSelector
+        WebElement homeBtn2 = driver.findElement(By.xpath("//a[@class = 'nav-link']")); //xPath - relative
+//        WebElement homeBtn3 = driver.findElement(By.className("nav-link")); // className
+//        WebElement homeBtn3 = driver.findElement(By.cssSelector("a.nav-link")); // cssSelector syntax = 2
+//        WebElement homeBtn3 = driver.findElement(By.cssSelector("a[href = '/'")); // cssSelector syntax = 2
+        WebElement homeBtn3 = driver.findElement(By.cssSelector("[href = '/'")); // cssSelector syntax = 2
+//        WebElement homeBtn3 = driver.findElement(By.tagName("a"));  //tagName
+//        WebElement homeBtn3 = driver.findElement(By.partialLinkText("ome"));  // partialLinkText
+//        WebElement homeBtn3 = driver.findElement(By.linkText("Home"));          // linkText
+//        WebElement homeBtn3 = driver.findElement(By.xpath("/html/body/nav/ul/li/a"));          // xpath - absolute
+//        WebElement homeBtn3 = driver.findElement(By.xpath("/html/body//a"));          // xpath - absolute + relative
+
+
+        String expHomeBtnTxt = "Home";
+        String actualHomeBtnTxt = homeBtn.getText();
+        String actualHomeBtnTxt2 = homeBtn.getText();
+        String actualHomeBtnTxt3 = homeBtn.getText();
+
+        if (actualHomeBtnTxt.equals(expHomeBtnTxt)){
+            Print.printPassed("Home button");
+        }else{
+            Print.printFailed("Home button");
+        }
+
+        if (actualHomeBtnTxt2.equals(expHomeBtnTxt)){
+            Print.printPassed("Home button2");
+        }else{
+            Print.printFailed("Home button2");
+        }
+
+        if (actualHomeBtnTxt3.equals(expHomeBtnTxt)){
+            Print.printPassed("Home button3");
+        }else{
+            Print.printFailed("Home button3");
+        }
+
+
         String expHeadTxt = "Forgot Password";
-        String actHeadTxt = driver.findElement(By.tagName("h2")).getText();
+//        String actHeadTxt = driver.findElement(By.tagName("h2")).getText();                       // tagName
+//        String actHeadTxt = driver.findElement(By.cssSelector("div.example > h2")).getText();     // cssSelector
+//        String actHeadTxt = driver.findElement(By.xpath("//h2")).getText();                       //xpath
+//        String actHeadTxt = driver.findElement(By.xpath("//h2[text() = 'Forgot Password']")).getText(); //xpath
+        String actHeadTxt = driver.findElement(By.xpath("//h2[. = 'Forgot Password']")).getText(); //xpath
 
         if (actHeadTxt.equals(expHeadTxt)){
             Print.printPassed("Header text");
@@ -63,10 +104,16 @@ public class T1_xpath_cssSelector_practice {
         WebElement emailInput = driver.findElement(By.xpath("//input[@name = 'email']"));
         emailInput.sendKeys("admin@cydeo.com");
 
+        Thread.sleep(1000);
+
         WebElement retrieveBtn = driver.findElement(By.xpath("//button[@id = 'form_submit']"));
         retrieveBtn.click();
 
+
+        Thread.sleep(1000);
         driver.navigate().back();
+
+
 
         WebElement footerNote = driver.findElement(By.xpath("//div[@style = 'text-align: center;']"));
         String actFootNote = footerNote.getText();
@@ -83,10 +130,10 @@ public class T1_xpath_cssSelector_practice {
 
         Print.printFinished();
 
-        Thread.sleep(2500);
+        Thread.sleep(1000);
         driver.close();
 
     }
 }
 
-// VIDEO 1.18.05
+// VIDEO 1.32.05
