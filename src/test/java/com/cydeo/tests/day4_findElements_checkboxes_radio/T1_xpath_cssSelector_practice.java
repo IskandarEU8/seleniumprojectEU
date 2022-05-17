@@ -101,7 +101,8 @@ public class T1_xpath_cssSelector_practice {
             System.out.println("expEmailTxt = " + expEmailTxt);
         }
 
-        WebElement emailInput = driver.findElement(By.xpath("//input[@name = 'email']"));
+//        WebElement emailInput = driver.findElement(By.xpath("//input[@name = 'email']"));
+        WebElement emailInput = driver.findElement(By.xpath("//input[@type = 'text']"));
         emailInput.sendKeys("admin@cydeo.com");
 
         Thread.sleep(1000);
@@ -132,6 +133,8 @@ public class T1_xpath_cssSelector_practice {
 
         Thread.sleep(1000);
         driver.close();
+
+
 
     }
 }
