@@ -50,6 +50,7 @@ public class T1_xpath_cssSelector_practice {
 //        WebElement homeBtn3 = driver.findElement(By.xpath("/html/body/nav/ul/li/a"));          // xpath - absolute
 //        WebElement homeBtn3 = driver.findElement(By.xpath("/html/body//a"));          // xpath - absolute + relative
 
+        System.out.println("home button is displayed "+homeBtn.isDisplayed());
 
         String expHomeBtnTxt = "Home";
         String actualHomeBtnTxt = homeBtn.getText();
@@ -80,7 +81,10 @@ public class T1_xpath_cssSelector_practice {
 //        String actHeadTxt = driver.findElement(By.cssSelector("div.example > h2")).getText();     // cssSelector
 //        String actHeadTxt = driver.findElement(By.xpath("//h2")).getText();                       //xpath
 //        String actHeadTxt = driver.findElement(By.xpath("//h2[text() = 'Forgot Password']")).getText(); //xpath
+        WebElement HeadTxt = driver.findElement(By.xpath("//h2[. = 'Forgot Password']")); //xpath
         String actHeadTxt = driver.findElement(By.xpath("//h2[. = 'Forgot Password']")).getText(); //xpath
+
+        System.out.println("Header Text is displayed " + HeadTxt.isDisplayed());
 
         if (actHeadTxt.equals(expHeadTxt)){
             Print.printPassed("Header text");
@@ -100,16 +104,23 @@ public class T1_xpath_cssSelector_practice {
             System.out.println("actEmailTxt = " + actEmailTxt);
             System.out.println("expEmailTxt = " + expEmailTxt);
         }
+// <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required="">
 
 //        WebElement emailInput = driver.findElement(By.xpath("//input[@name = 'email']"));
-        WebElement emailInput = driver.findElement(By.xpath("//input[@type = 'text']"));
+
+//        WebElement emailInput = driver.findElement(By.xpath("//input[@type = 'text']"));
+
+
+        WebElement emailInput = driver.findElement(By.xpath("//input[contains (@pattern, 'a-z')]"));
         emailInput.sendKeys("admin@cydeo.com");
 
         Thread.sleep(1000);
 
-        WebElement retrieveBtn = driver.findElement(By.xpath("//button[@id = 'form_submit']"));
+//        WebElement retrieveBtn = driver.findElement(By.xpath("//button[@id = 'form_submit']"));
+        WebElement retrieveBtn = driver.findElement(By.xpath("//button[@type = 'submit']"));
         retrieveBtn.click();
 
+//        System.out.println("Header text is displayed " + actHeadTxt.);
 
         Thread.sleep(1000);
         driver.navigate().back();
@@ -117,6 +128,7 @@ public class T1_xpath_cssSelector_practice {
 
 
         WebElement footerNote = driver.findElement(By.xpath("//div[@style = 'text-align: center;']"));
+        System.out.println("footerNote = " + footerNote.isDisplayed());
         String actFootNote = footerNote.getText();
         String expactFootNote = "Powered by CYDEO";
 
@@ -139,4 +151,4 @@ public class T1_xpath_cssSelector_practice {
     }
 }
 
-// VIDEO 1.32.05
+// VIDEO 2.03.05
