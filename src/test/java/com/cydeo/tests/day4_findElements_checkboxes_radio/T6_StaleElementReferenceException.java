@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class T6_StaleElementReferenceException {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
@@ -18,12 +18,18 @@ public class T6_StaleElementReferenceException {
 
         driver.navigate().to("https://practice.cydeo.com/abtest");
 
-        WebElement cydeoLink = driver.findElement(By.xpath("//a[@text() = 'CYDE']"));
+        WebElement cydeoLink = driver.findElement(By.xpath("//a[text() = 'CYDEO']"));
+
+        System.out.println("\n\ncydeoLink = " + cydeoLink.isDisplayed() + "\n\n");
 
         driver.navigate().refresh();
 
+        cydeoLink = driver.findElement(By.xpath("//a[text() = 'CYDEO']"));
+
         System.out.println("cydeoLink = " + cydeoLink.isDisplayed());
 
+        Thread.sleep(2000);
+        driver.close();
 
     }
 }
