@@ -26,21 +26,20 @@ public class T3_RadioBtn_Cont {
 
             Thread.sleep(150);
 
-            if (eachId.equals("red")){
+            if (eachId.equals("red")) {
                 each.click();
             }
 
             Thread.sleep(150);
 
-            if (eachId.equals("yellow")){
+            if (eachId.equals("yellow")) {
                 each.click();
             }
 
             Thread.sleep(150);
-            if (eachId.equals("black")){
+            if (eachId.equals("black")) {
                 each.click();
             }
-
 
 
         }
@@ -55,16 +54,32 @@ public class T3_RadioBtn_Cont {
             System.out.print(eachId + ".isSelected = ");
             System.out.println(each.isSelected());
 
-            if (eachId.equals("hockey")){
+            if (eachId.equals("hockey")) {
                 each.click();
                 System.out.println("hockey is selected = " + each.isSelected());
                 break;
             }
         }
 
+
         Thread.sleep(1000);
         driver.quit();
 
 
     }
+
+    private static void clickAndVerifyRadioButton(WebDriver driver, String nameAttribute, String idValue){
+        List<WebElement> radioButtons = driver.findElements(By.name(nameAttribute));
+        for (WebElement each : radioButtons) {
+            String eachId = each.getAttribute("id");
+
+            if (eachId.equals(idValue)){
+                each.click();
+                System.out.println(eachId + " isSelected() = " + each.isSelected());
+                break;
+            }
+        }
+
+    }
+
 }
