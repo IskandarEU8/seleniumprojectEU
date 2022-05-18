@@ -1,16 +1,14 @@
-package com.cydeo.tests.day3_cssSelector_xPath;
+package com.cydeo.tests.day03_cssSelector_xPath;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-public class T1_locators_getText {
+public class T1_2_Locators_getText {
     public static void main(String[] args) throws InterruptedException {
 
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = WebDriverFactory.getDriver("edge");
         driver.manage().window().maximize();
 
         System.out.println("Test started");

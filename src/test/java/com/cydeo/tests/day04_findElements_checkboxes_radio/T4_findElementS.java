@@ -1,4 +1,4 @@
-package com.cydeo.tests.day4_findElements_checkboxes_radio;
+package com.cydeo.tests.day04_findElements_checkboxes_radio;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
