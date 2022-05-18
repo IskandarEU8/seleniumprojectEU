@@ -61,6 +61,12 @@ public class T3_RadioBtn_Cont {
             }
         }
 
+        System.out.println("\n\n=============================\n\n");
+        Thread.sleep(300);
+        clickAndVerifyRadioButton(driver, "color", "yellow");
+
+        Thread.sleep(300);
+        clickAndVerifyRadioButton(driver, "sport", "water_polo");
 
         Thread.sleep(1000);
         driver.quit();
@@ -75,7 +81,7 @@ public class T3_RadioBtn_Cont {
 
             if (eachId.equals(idValue)){
                 each.click();
-                System.out.println(eachId + " isSelected() = " + each.isSelected());
+                System.out.println(eachId + ".isSelected() = " + each.isSelected());
                 break;
             }
         }
