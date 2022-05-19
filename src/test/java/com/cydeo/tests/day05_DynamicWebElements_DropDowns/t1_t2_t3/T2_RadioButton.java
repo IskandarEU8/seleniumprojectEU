@@ -1,4 +1,4 @@
-package com.cydeo.tests.day05_DynamicWebElements_DropDowns;
+package com.cydeo.tests.day05_DynamicWebElements_DropDowns.t1_t2_t3;
 
 import com.cydeo.utilities.Print;
 import com.cydeo.utilities.WebDriverFactory;
