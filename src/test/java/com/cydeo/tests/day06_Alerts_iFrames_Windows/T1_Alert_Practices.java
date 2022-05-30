@@ -17,6 +17,7 @@ public class T1_Alert_Practices {
         driver = WebDriverFactory.getDriver("chrome");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        driver.navigate().to("https://practice.cydeo.com/javascript_alerts");
     }
 
     @AfterMethod
@@ -29,8 +30,9 @@ public class T1_Alert_Practices {
 
     @Test
     public void alertPractice(){
-        driver.navigate().to("https://practice.cydeo.com/javascript_alerts");
+
     }
 
 
 }
+//VIDEO: 2.08.04
