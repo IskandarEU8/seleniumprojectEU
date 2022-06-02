@@ -2,10 +2,7 @@ package com.cydeo.tests.day06_Alerts_iFrames_Windows;
 
 import com.cydeo.utilities.WebDriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -23,9 +20,9 @@ public class T2_AlertPractice {
 
     @BeforeMethod
     public void setupConnection(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-//        driver = WebDriverFactory.getDriver("chrome");
+//        WebDriverManager.chromedriver().setup();
+//        driver = new ChromeDriver();
+        driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.navigate().to("https://practice.cydeo.com/javascript_alerts");
@@ -60,7 +57,12 @@ public class T2_AlertPractice {
     public void testConfirmAlert() throws InterruptedException {
         WebElement clickConfirm = driver.findElement(By.xpath("//button[.='Click for JS Confirm']"));
         clickConfirm.click();
-        Thread.sleep(1200);
+
+        Alert alert = driver.switchTo().alert();
+        alert.dismiss();
+
+        Thread.sleep(3000);
+
 
         WebElement actualConfirmTextElement = driver.findElement(By.xpath("//p[@id = 'result']"));
         String actualConfirmText = actualConfirmTextElement.getText();
@@ -70,10 +72,28 @@ public class T2_AlertPractice {
         System.out.println("expectedConfirmText = " + expectedConfirmText);
         System.out.println("actualConfirmText = " + actualConfirmText);
         System.out.println("\n\n-------------------------------------------------\n\n\n");
-        Alert alert = driver.switchTo().alert();
-        alert.dismiss();
 
         Assert.assertTrue(actualConfirmTextElement.isDisplayed(), "Result text is NOT displayed");
         Assert.assertEquals(actualConfirmText, expectedConfirmText, "Actual result text is not as expected");
+    }
+
+    @Test (priority = 3)
+    public void sendKeysToAlertBox() throws InterruptedException {
+        WebElement clickPrompt = driver.findElement(By.xpath("//button[3]"));
+        clickPrompt.click();
+
+        Alert alert =  driver.switchTo().alert();
+        alert.sendKeys("Hello, Cydeo student");
+        Thread.sleep(1000);
+        alert.accept();
+
+
+        WebElement actualPromptTextElement = driver.findElement(By.xpath("//p[@id = 'result']"));
+        String actualPromptText = actualPromptTextElement.getText();
+        String expectetPromptText = "You entered: Hello, Cydeo student";
+
+        Assert.assertEquals(actualPromptText, expectetPromptText);
+        Assert.assertTrue(actualPromptTextElement.isDisplayed());
+
     }
 }
