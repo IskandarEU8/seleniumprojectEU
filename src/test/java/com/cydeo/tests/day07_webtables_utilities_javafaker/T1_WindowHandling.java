@@ -1,5 +1,6 @@
 package com.cydeo.tests.day07_webtables_utilities_javafaker;
 
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +25,7 @@ public class T1_WindowHandling {
 
     }
 
-    @Test
+    @Test (priority = 1)
     public void windows_handling() {
         // 2. Go to https://www.amazon.com
         driver.navigate().to("https://www.amazon.ca");
@@ -33,6 +34,7 @@ public class T1_WindowHandling {
         ((JavascriptExecutor) driver).executeScript("window.open('https://google.ca','_blank');");
         ((JavascriptExecutor) driver).executeScript("window.open('https://etsy.com','_blank');");
         ((JavascriptExecutor) driver).executeScript("window.open('https://facebook.com','_blank');");
+
 
 //        4. Create a logic to switch to the tab where Etsy.com is open
 
@@ -56,6 +58,22 @@ public class T1_WindowHandling {
 
     }
 
+
+    @Test (priority = 2)
+    public void windowSwitch(){
+        driver.navigate().to("https://kun.uz");
+
+        ((JavascriptExecutor) driver).executeScript("window.open('https://vb.kg','_blank');");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://kaktus.media','_blank');");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://daryo.uz/','_blank');");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://www.ixbt.com/','_blank');");
+
+        BrowserUtils.sleep(4);
+
+        BrowserUtils.switchWindowAndVerify(driver, "kaktus","Кактус" );
+
+        BrowserUtils.verifyTitle(driver, "Кактус – новости Кыргызстана и Бишкека");
+    }
 
     @AfterMethod
     public void teardown() throws InterruptedException {
