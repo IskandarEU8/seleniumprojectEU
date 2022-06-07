@@ -24,6 +24,15 @@ public class BrowserUtils {
         }
     }
 
+    public static void sleep(double seconds) {
+        seconds *= 1000;
+        try {
+            Thread.sleep((long) seconds);
+        } catch (InterruptedException e) {
+
+        }
+    }
+
 
     /*
     This method accepts 3 arguments.
