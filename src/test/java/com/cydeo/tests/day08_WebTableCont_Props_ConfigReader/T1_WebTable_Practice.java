@@ -10,6 +10,7 @@ expected `12/31/2021`
 
 import com.cydeo.utilities.Be4AfterMethods;
 import com.cydeo.utilities.WebDriverFactory;
+import com.cydeo.utilities.WebTableUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -60,12 +61,27 @@ public class T1_WebTable_Practice {
         String actualOrderDate = orderDate.getText();
         String expectedOrderDate = "12/31/2021";
 
+
         System.out.println("actualOrderDate = " + actualOrderDate);
 
         Assert.assertEquals(actualOrderDate, expectedOrderDate, "Dates do not match");
     }
 
+    @Test (priority = 3)
+    public void test3(){
 
+        String orderDateText1 = WebTableUtils.returnOrderDate(driver, "Alexandra Gray");
+        String orderDateText2  = WebTableUtils.returnOrderDate(driver, "Stewart Dawidson");
+        String orderDateText3  = WebTableUtils.returnOrderDate(driver, "Ned Stark");
+        System.out.println("orderDateText1 = " + orderDateText1);
+        System.out.println("orderDateText2 = " + orderDateText2);
+        System.out.println("orderDateText3 = " + orderDateText3);
+    }
+
+    @Test (priority = 4)
+    public void test4(){
+        WebTableUtils.orderVerify(driver, "Robert Baratheon", "12/04/2021");
+    }
 
 }
 //30.30
