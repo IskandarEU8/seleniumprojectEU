@@ -27,4 +27,9 @@ public class ConfigurationReader {
 
     }
 
+
+    public static String getProperty(String keyword){
+        return properties.getProperty(keyword);
+    }
+
 }
