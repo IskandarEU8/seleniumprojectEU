@@ -25,3 +25,4 @@ public class ReadingProperties {
         System.out.println("properties.getProperty(\"username\") = " + properties.getProperty("username"));
     }
 }
+//45.21

@@ -3,6 +3,7 @@ package com.cydeo.tests.day08_WebTableCont_Props_ConfigReader;
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.WebDriverFactory;
+import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -14,9 +15,10 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class T9 {
+public class T4_Config_Practice {
 
     WebDriver driver;
+
     @BeforeMethod
     public void setup() {
         //We are getting the browserType dynamically from our configuration.properties file
@@ -30,9 +32,6 @@ public class T9 {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(urlPage);
-
-        WebElement english = driver.findElement(By.xpath("//a[.='English']"));
-        english.click();
 
     }
 
@@ -49,19 +48,17 @@ public class T9 {
 
         String searchKeyword = ConfigurationReader.getProperty("keyword");
         WebElement googleSearchBox = driver.findElement(By.xpath("//input[@name = 'q']"));
-
         googleSearchBox.sendKeys(searchKeyword + Keys.ENTER);
 
         BrowserUtils.sleep(1.2);
-        String expectedTitle = "apple - Google Search";
+        String expectedTitle = "apple - Google'da Ara";
         String actualTitle = driver.getTitle();
         System.out.println(actualTitle);
 
         Assert.assertEquals(actualTitle, expectedTitle, "Titles didn't match.");
 
-
-
     }
+
 
 
 }
