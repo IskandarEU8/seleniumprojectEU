@@ -1,5 +1,6 @@
 package com.cydeo.tests.day07_webtables_utilities_javafaker;
 
+import com.cydeo.tests.base.TestBase;
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.CRM_Utilities;
 import com.cydeo.utilities.WebDriverFactory;
@@ -13,19 +14,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class T4_CRM_Login {
-
-    WebDriver driver;
-
-    @BeforeMethod
-    public void setup() {
-        // 1. Create new test and make setups
-        driver = WebDriverFactory.getDriver("chrome");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-
-    }
-
+public class T4_CRM_Login extends TestBase {
 
     @Test
     public void crm_login_test(){
@@ -82,12 +71,7 @@ public class T4_CRM_Login {
 
 
 
-    @AfterMethod
 
-    public void teardown() throws InterruptedException {
-        BrowserUtils.sleep(3.4);
-        driver.quit();
-    }
 
 
 }

@@ -33,6 +33,8 @@ public class T4_Config_Practice {
         driver.manage().window().maximize();
         driver.get(urlPage);
 
+        BrowserUtils.switchToEnglish(driver);
+
     }
 
     @AfterMethod
@@ -51,7 +53,7 @@ public class T4_Config_Practice {
         googleSearchBox.sendKeys(searchKeyword + Keys.ENTER);
 
         BrowserUtils.sleep(1.2);
-        String expectedTitle = "apple - Google'da Ara";
+        String expectedTitle = ConfigurationReader.getProperty("searchValue")+" - Google Search";
         String actualTitle = driver.getTitle();
         System.out.println(actualTitle);
 

@@ -4,7 +4,9 @@ package com.cydeo.utilities;
 In this class only general utility methods that are not related to some specific page
  */
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import java.util.Set;
@@ -77,5 +79,9 @@ public class BrowserUtils {
 
     }
 
+    public static void switchToEnglish(WebDriver driver){
+        WebElement english = driver.findElement(By.xpath("//a[.='English']"));
+        english.click();
+    }
 
 }

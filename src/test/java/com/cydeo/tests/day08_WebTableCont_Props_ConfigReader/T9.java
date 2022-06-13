@@ -31,8 +31,7 @@ public class T9 {
         driver.manage().window().maximize();
         driver.get(urlPage);
 
-        WebElement english = driver.findElement(By.xpath("//a[.='English']"));
-        english.click();
+        BrowserUtils.switchToEnglish(driver);
 
     }
 
@@ -47,7 +46,7 @@ public class T9 {
     @Test
     public void googleSearchTest(){
 
-        String searchKeyword = ConfigurationReader.getProperty("keyword");
+        String searchKeyword = ConfigurationReader.getProperty("searchValue");
         WebElement googleSearchBox = driver.findElement(By.xpath("//input[@name = 'q']"));
 
         googleSearchBox.sendKeys(searchKeyword + Keys.ENTER);
