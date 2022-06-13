@@ -46,7 +46,7 @@ public class T4_Config_Practice {
     @Test
     public void googleSearchTest(){
 
-        String searchKeyword = ConfigurationReader.getProperty("keyword");
+        String searchKeyword = ConfigurationReader.getProperty("searchValue");
         WebElement googleSearchBox = driver.findElement(By.xpath("//input[@name = 'q']"));
         googleSearchBox.sendKeys(searchKeyword + Keys.ENTER);
 
