@@ -72,5 +72,25 @@ public class Driver {
         }
         return driver;
     }
+
+
+    public static void quitDriver(int wait) {
+        try {
+            Thread.sleep(wait * 1000);
+        } catch (Exception e) {
+
+            driver.quit();
+        }
+    }
+
+    public static void quitDriver(double wait) {
+        try {
+            Thread.sleep((long) wait * 1000);
+            driver.quit();
+        } catch (Exception e) {
+
+        }
+    }
 }
+
 
