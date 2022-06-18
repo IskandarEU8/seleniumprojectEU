@@ -24,7 +24,7 @@ public class LibraryLoginPage {
     @FindBy(xpath = "//button[.='Sign in']")
     public WebElement signInButton;
 
-    @FindBy(xpath = "//div[.='This field is required']/div")
+    @FindBy(xpath = "//div[.='This field is required.']/div")
     public WebElement fieldRequiredErrorMessage;
 
     @FindBy(xpath = "//div[.='Please enter a valid email address.']/div")

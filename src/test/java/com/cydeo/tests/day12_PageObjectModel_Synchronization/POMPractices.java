@@ -25,6 +25,7 @@ public class POMPractices {
         //Expected: This field is required.
         Assert.assertTrue(libraryLoginPage.fieldRequiredErrorMessage.isDisplayed());
 
+        Driver.quitDriver(2.2);
 
 
     }
