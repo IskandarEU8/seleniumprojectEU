@@ -1,4 +1,4 @@
-package com.cydeo.tests.day11_DriverClose_Acrions_JSexecutorPractice;
+package com.cydeo.tests.day11_DriverClose_Acrions_JSExecutorPractice;
 
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;

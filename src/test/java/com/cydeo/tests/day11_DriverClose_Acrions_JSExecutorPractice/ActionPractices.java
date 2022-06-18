@@ -1,9 +1,8 @@
-package com.cydeo.tests.day11_DriverClose_Acrions_JSexecutorPractice;
+package com.cydeo.tests.day11_DriverClose_Acrions_JSExecutorPractice;
 
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
