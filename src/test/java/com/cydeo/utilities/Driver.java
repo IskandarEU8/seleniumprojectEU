@@ -73,24 +73,50 @@ public class Driver {
         return driver;
     }
 
+    public static void quitDriver() {
+        if (driver != null) {
+            driver.quit(); // this will terminate the existing session. Value will not even be null
+            driver = null;
 
-    public static void quitDriver(int wait) {
-        try {
-            Thread.sleep(wait * 1000);
-        } catch (Exception e) {
-
-            driver.quit();
         }
     }
 
+
+    public static void quitDriver(int wait) {
+        BrowserUtils.sleep(wait);
+        if (driver != null) {
+            driver.quit(); // this will terminate the existing session. Value will not even be null
+            driver = null;
+        }
+    }
+
+/*
     public static void quitDriver(double wait) {
         try {
             Thread.sleep((long) wait * 1000);
-            driver.quit();
+               if (driver != null) {
+            driver.quit(); // this will terminate the existing session. Value will not even be null
+            driver = null;
         } catch (Exception e) {
 
         }
+ */
+
+    public static void quitDriver(double wait) {
+        BrowserUtils.sleep(wait);
+        if (driver != null) {
+            driver.quit(); // this will terminate the existing session. Value will not even be null
+            driver = null;
+        }
     }
+
+
+    /*
+    This method will make sure our drive value is always null after using quit()method
+     */
+
+
 }
+
 
 

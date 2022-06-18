@@ -44,7 +44,7 @@ public class BrowserUtils {
     Arg3: expectedInTitle to be compared against actualTitle
      */
 
-    public static void switchWindowAndVerify(WebDriver driver, String expectedInUrl, String expectedInTitle){
+    public static void switchWindowAndVerify(WebDriver driver, String expectedInUrl, String expectedInTitle) {
 
         Set<String> allWindowsHandles = driver.getWindowHandles();
 
@@ -54,7 +54,7 @@ public class BrowserUtils {
             System.out.println("Current URL: " + driver.getCurrentUrl());
             System.out.println("Current Title: " + driver.getTitle());
 
-            if (driver.getCurrentUrl().contains(expectedInUrl)){
+            if (driver.getCurrentUrl().contains(expectedInUrl)) {
                 break;
             }
         }
@@ -73,13 +73,13 @@ public class BrowserUtils {
     This method accepts a String "expectedTitle" and Asserts if it is true;
      */
 
-    public static void verifyTitle(WebDriver driver, String expectedTitle){
+    public static void verifyTitle(WebDriver driver, String expectedTitle) {
 
         Assert.assertEquals(driver.getTitle(), expectedTitle, "Title verification FAILED");
 
     }
 
-    public static void switchToEnglish(WebDriver driver){
+    public static void switchToEnglish(WebDriver driver) {
         WebElement english = driver.findElement(By.xpath("//a[.='English']"));
         english.click();
     }
