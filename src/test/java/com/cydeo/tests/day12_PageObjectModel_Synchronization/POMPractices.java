@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 public class POMPractices {
 
+    LibraryLoginPage libraryLoginPage;
     @Test
     public void required_field_error_message_test(){
 
@@ -17,7 +18,7 @@ public class POMPractices {
 
         //3- Do not enter any information
         //4- Click to “Sign in” button
-        LibraryLoginPage libraryLoginPage = new LibraryLoginPage();
+        libraryLoginPage = new LibraryLoginPage();
 
         libraryLoginPage.signInButton.click();
 
@@ -28,5 +29,34 @@ public class POMPractices {
         Driver.quitDriver(2.2);
 
 
+    }
+
+    @Test
+    public void invalid_email_format_error_message_test(){
+        Driver.getDriver().get("https://library1.cydeo.com/");
+
+        //TC #2: Invalid email format error message test
+        //1- Open a Chrome browser
+        //2- Go to: https://library1.cydeo.com/
+        //3- Enter invalid email format
+
+        libraryLoginPage = new LibraryLoginPage();
+
+        libraryLoginPage.inputUsername.sendKeys("somethingwrong");
+        libraryLoginPage.signInButton.click();
+
+        //4- Verify expected error is displayed:
+        //Expected: Please enter a valid email address.
+        Assert.assertTrue(libraryLoginPage.enterValidEmailErrorMessage.isDisplayed());
+
+        Driver.quitDriver(1.2);
+
+        //TC #3: Library negative login
+        //1- Open a Chrome browser
+        //2- Go to: https://library1.cydeo.com
+        //3- Enter incorrect username or incorrect password
+
+        //4- Verify title expected error is displayed:
+        //Expected: Sorry, Wrong Email or Password
     }
 }

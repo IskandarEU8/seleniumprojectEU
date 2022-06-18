@@ -15,7 +15,7 @@ public class LibraryLoginPage {
 
 
     // 2. use @FindBy annotation to locate web elements
-    @FindBy(xpath = "//id[@id='inputEmail']")
+    @FindBy(xpath = "//input[@id='inputEmail']")
     public WebElement inputUsername;
 
     @FindBy(id="inputPassword")
