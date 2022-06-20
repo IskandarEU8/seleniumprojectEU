@@ -14,7 +14,6 @@ public class T4_DynamicallyLoadedPageElements7 {
     @BeforeMethod
     public void connect() {
         Driver.getDriver().get("https://practice.cydeo.com/dynamic_loading/7");
-        Driver.getDriver().get("https://practice.cydeo.com/dynamic_loading/7");
     }
 
     @AfterMethod
@@ -31,9 +30,13 @@ public class T4_DynamicallyLoadedPageElements7 {
 //        Assert.assertEquals(actualDoneText, expectedDoneText);
 
         WebElement spoungeBobImage = Driver.getDriver().findElement(By.xpath("//img[@src='/img/a-few-moments.jpg']"));
-//        WebElement spoungeBobImage = Driver.getDriver().findElement(By.xpath("//img[@alt='square pants']"));
-        Assert.assertTrue(spoungeBobImage.isDisplayed());
+
+
 
     }
+
+
+
+
 
 }

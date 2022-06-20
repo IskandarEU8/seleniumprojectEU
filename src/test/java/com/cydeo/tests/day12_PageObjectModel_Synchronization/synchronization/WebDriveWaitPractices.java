@@ -41,6 +41,8 @@ public class WebDriveWaitPractices {
     @Test
     public void dynamic_load_1_test(){
 
-//        Driver.getDriver().get("htpps://");
+        Driver.getDriver().get("https://practice.cydeo.com/dynamic_loading/1");
+
+
     }
 }
