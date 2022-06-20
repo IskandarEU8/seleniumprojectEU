@@ -1,5 +1,6 @@
 package com.cydeo.tests.day12_PageObjectModel_Synchronization.synchronization;
 
+import com.cydeo.pages.DynamicLoad1Page;
 import com.cydeo.pages.DynamicLoad7Page;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.By;
@@ -42,6 +43,24 @@ public class WebDriveWaitPractices {
     public void dynamic_load_1_test(){
 
         Driver.getDriver().get("https://practice.cydeo.com/dynamic_loading/1");
+
+        DynamicLoad1Page dynamicLoad1Page = new DynamicLoad1Page();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+
+        dynamicLoad1Page.startBtn.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(dynamicLoad1Page.loadingBar));
+
+        Assert.assertTrue(dynamicLoad1Page.inputUsername.isDisplayed());
+
+        dynamicLoad1Page.inputUsername.sendKeys("tomsmith");
+
+        dynamicLoad1Page.inputPassword.sendKeys("somethingwrong");
+
+        dynamicLoad1Page.submitButton.click();
+
+        Assert.assertTrue(dynamicLoad1Page.errorMessage.isDisplayed());
+
 
 
     }
