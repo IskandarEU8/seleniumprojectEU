@@ -3,22 +3,26 @@ package com.cydeo.tests.day12_PageObjectModel_Synchronization;
 import com.cydeo.pages.LibraryLoginPage;
 import com.cydeo.utilities.Driver;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class POMPractices {
 
     LibraryLoginPage libraryLoginPage;
-    @Test
-    public void required_field_error_message_test(){
 
+    @BeforeMethod
+    public void setupMethod() {
+        Driver.getDriver().get("https://library1.cydeo.com/");
+        libraryLoginPage = new LibraryLoginPage();
+    }
+
+    @Test
+    public void required_field_error_message_test() {
         //TC #1: Required field error message test
         //1- Open a Chrome browser
         //2- Go to: https://library1.cydeo.com/
-        Driver.getDriver().navigate().to("https://library1.cydeo.com/");
-
         //3- Do not enter any information
         //4- Click to “Sign in” button
-        libraryLoginPage = new LibraryLoginPage();
 
         libraryLoginPage.signInButton.click();
 
@@ -26,37 +30,26 @@ public class POMPractices {
         //Expected: This field is required.
         Assert.assertTrue(libraryLoginPage.fieldRequiredErrorMessage.isDisplayed());
 
-        Driver.quitDriver(2.2);
-
-
+        Driver.quitDriver();
     }
 
     @Test
-    public void invalid_email_format_error_message_test(){
-        Driver.getDriver().get("https://library1.cydeo.com/");
-
+    public void invalid_email_format_error_message_test() {
         //TC #2: Invalid email format error message test
         //1- Open a Chrome browser
         //2- Go to: https://library1.cydeo.com/
         //3- Enter invalid email format
 
-        libraryLoginPage = new LibraryLoginPage();
-
         libraryLoginPage.inputUsername.sendKeys("somethingwrong");
+
         libraryLoginPage.signInButton.click();
 
         //4- Verify expected error is displayed:
         //Expected: Please enter a valid email address.
         Assert.assertTrue(libraryLoginPage.enterValidEmailErrorMessage.isDisplayed());
 
-        Driver.quitDriver(1.2);
+        Driver.quitDriver();
 
-        //TC #3: Library negative login
-        //1- Open a Chrome browser
-        //2- Go to: https://library1.cydeo.com
-        //3- Enter incorrect username or incorrect password
-
-        //4- Verify title expected error is displayed:
-        //Expected: Sorry, Wrong Email or Password
     }
 }
+//20811
