@@ -61,6 +61,19 @@ public class ExplicitWaitPractices {
     @Test
     public void enable_button_test(){
 
+
+        System.out.println("dcPage.inputBox.isEnabled() = "
+                + dcPage.inputBox.isEnabled());
+
+
+        Assert.assertTrue(!dcPage.inputBox.isEnabled());
+        Assert.assertFalse(dcPage.inputBox.isEnabled());
+
+        Assert.assertTrue(dcPage.message.isDisplayed());
+
+        Assert.assertTrue(dcPage.message.getText().equals("It's enabled!"));
     }
 
 }
+
+//25552

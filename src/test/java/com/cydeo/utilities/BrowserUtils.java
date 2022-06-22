@@ -87,10 +87,15 @@ public class BrowserUtils {
         english.click();
     }
 
+    /*
+    Using explicit and implicit wait causing enexpected wait problem, so here we disable implicit wait,
+    we can use explicit wait
+     */
     public static void waitForInvisibilityOf(WebElement webElement){
         Driver.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
         wait.until(ExpectedConditions.invisibilityOf(webElement));
+
     }
 
 }
