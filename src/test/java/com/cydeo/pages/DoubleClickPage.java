@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class DoubleClickPage {
 
-    DoubleClickPage(){
+    public DoubleClickPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
